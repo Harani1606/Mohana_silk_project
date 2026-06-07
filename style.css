@@ -123,6 +123,70 @@ a:hover svg{
 .account a{
     white-space: nowrap;
 }
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-250px;
+    width:250px;
+    height:100%;
+    background:var(--primary);
+    transition:0.3s;
+    z-index:1000;
+}
+
+.sidebar.active{
+    left:0;
+}
+.sidebar a{
+    display:block;
+    color:#F3E8D8;
+    text-decoration:none;
+    padding:15px 20px;
+}
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.3);
+    display:none;
+    z-index:999;
+}
+
+.overlay.active{
+    display:block;
+}
+.sidebar-header{
+    padding:20px;
+    color:var(--accent);
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+.category-list{
+    display:none;
+}
+.category-list.active{
+    display:block;
+}
+.category-btn{
+    background:none;
+    border:none;
+    color:var(--secondary);
+    font-family:'Times New Roman', Times, serif;
+    font-size:16px;
+    font-weight:normal;
+    padding:15px 20px;
+    cursor:pointer;
+}
+.category-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
 @media (max-width:1024px){
 
     .navbar{
@@ -136,20 +200,29 @@ a:hover svg{
 }
 @media (max-width:768px){
     .Header img{
-        height:35px;
+       height: 40px;
+       order:1;
     }
     .Header{
+    display:flex;
     flex-wrap:wrap;
     align-items:center;
+    justify-content:space-between;
+    gap:10px;
     }
 
     .navbar{
         display:none;
     }
 .search-bar{
-    order:2;
+    position:relative;
+    display:block;
     width:100%;
-    margin-top:8px;
+    margin:8px auto 0 auto;
+    padding:0;
+    margin-top:5px;
+    margin-left:0;
+    order: 10;
 }
    .search-bar input{
     width:100%;
@@ -161,20 +234,27 @@ a:hover svg{
     padding:6px 30px 6px 10px;
     }
     .menu-btn{
-    display:block;
-    color:#F3E8D8;
-    font-size:26px;
-    width:30px;
+        display:block;
+        color:var(--secondary);
+        font-size:26px;
+        background:none;
+        border:none;
+        order:-1;
+        flex-shrink:0;
+        margin-right:10px;
+        padding: 8px;
     }
     .account{
         margin-left:0;
+        order:2;
     }
     .account a{
         display:none;
     }
     .header-icons{
         gap:15px;
-        margin-left: auto;
+        order:2;
+       margin-left:auto;
     }
 
     .header-icons svg,
@@ -182,27 +262,4 @@ a:hover svg{
         width:18px;
         height:18px;
     }
-}
-
-.menu-btn{
-    display:none;
-    background:none;
-    border:none;
-}
-.sidebar{
-    position:fixed;
-    left:-250px;
-    top:0;
-    width:250px;
-    height:100%;
-    background:#0B1F3A;
-    transition:.3s;
-    padding-top:70px;
-}
-
-.sidebar a{
-    display:block;
-    color:#F3E8D8;
-    text-decoration:none;
-    padding:15px 20px;
 }
